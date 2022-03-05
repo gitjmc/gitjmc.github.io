@@ -220,5 +220,6 @@ fi;
 ## Reverse Footnote
 
 [^ref1]: Voir ce lien <https://medium.com/@leonardo.lp2/installing-docker-on-deepin-15-9-2312f28f09b7>
-[^ref2]: Içi avant ne veut pas dire après. \(o_o)/
+[^ref2]: Içi avant ne veut pas dire après.  \ (o-o) /
+ 
 
