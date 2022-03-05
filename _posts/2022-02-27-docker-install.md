@@ -16,7 +16,7 @@ image:
 
 Cet article montre comment peut-on installer docker dans Deepin[^ref1] version 20 et plus.
 
-> Ça n'a pas bien fonctionné.
+> Ça n'a pas bien fonctionné!
 {: .prompt-danger }
 
 
