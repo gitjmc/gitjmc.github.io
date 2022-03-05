@@ -22,7 +22,7 @@ Cet article montre comment peut-on installer docker dans Deepin[^ref1] version 2
 
 ## Solution
 ---
-# Solution temporaire (à modifier)
+# Solution temporaire
 
 Ajouter dans le fichier `/etc/apt/sources.list`{: .filepath}
 
