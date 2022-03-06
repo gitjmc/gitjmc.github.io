@@ -1,11 +1,11 @@
 ---
-title: Customize the Favicon
+title: Common Commands
 author:
-  name: Cotes Chung
+  name: jmc
   link: https://github.com/cotes2020
-date: 2019-08-11 00:34:00 -0500
-categories: [Blogging, Tutorial]
-tags: [favicon]
+date: 2022-03-05 20:24:00 -0500
+categories: [Linux, CLI]
+tags: [cli, linux]
 ---
 
 The [favicons](https://www.favicon-generator.org/about/) of [**Chirpy**](https://github.com/cotes2020/jekyll-theme-chirpy/) are placed in the directory `assets/img/favicons/`{: .filepath}. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.
