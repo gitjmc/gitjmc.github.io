@@ -8,31 +8,37 @@ categories: [Linux, CLI]
 tags: [cli, linux]
 ---
 
-The [favicons](https://www.favicon-generator.org/about/) of [**Chirpy**](https://github.com/cotes2020/jekyll-theme-chirpy/) are placed in the directory `assets/img/favicons/`{: .filepath}. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.
+C'est la liste de commandes qui pourront me servir (pour ne pas les oublier) \o/
 
-## Generate the favicon
+## Liste des commandes
 
-Prepare a square image (PNG, JPG, or SVG) with a size of 512x512 or more, and then go to the online tool [**Real Favicon Generator**](https://realfavicongenerator.net/) and click the button <kbd>Select your Favicon image</kbd> to upload your image file.
+### pwd
 
-In the next step, the webpage will show all usage scenarios. You can keep the default options, scroll to the bottom of the page, and click the button <kbd>Generate your Favicons and HTML code</kbd> to generate the favicon.
+Print working directory
 
-## Download & Replace
+```console
+$ pwd
+/home/jmc/dev/tempo/jekyll/gitjmc.github.io
+```
 
-Download the generated package, unzip and delete the following two from the extracted files:
+### cp
+Copy files and folders ...
 
-- `browserconfig.xml`{: .filepath}
-- `site.webmanifest`{: .filepath}
+```console
+$ cp file_to_copy.txt new_file.txt
 
-And then copy the remaining image files (`.PNG`{: .filepath} and `.ICO`{: .filepath}) to cover the original files in the directory `assets/img/favicons/`{: .filepath} of your Jekyll site. If your Jekyll site doesn't have this directory yet, just create one.
-
-The following table will help you understand the changes to the favicon files:
-
-| File(s)             | From Online Tool                  | From Chirpy |
-|---------------------|:---------------------------------:|:-----------:|
-| `*.PNG`             | ✓                                 | ✗           |
-| `*.ICO`             | ✓                                 | ✗           |
-
->  ✓ means keep, ✗ means delete.
+$ cp -r dir_to_copy/ new_copy_dir/
+```
+> Remember that in Linux, folders end with a forward slash `/`.
 {: .prompt-info }
 
-The next time you build the site, the favicon will be replaced with a customized edition.
+### rm
+Remove files and folders ...
+
+```console
+$ rm file_to_ermove.txt
+
+$ cp -r dir_to_remove/
+
+$ rm -rf dir_with_content_to_remove/
+```
