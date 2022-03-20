@@ -1,5 +1,5 @@
 ---
-title: multiple github and bitbucket accounts on the same computer
+title: Multiple accounts (github and bitbucket) on the same computer
 author:
   name: 
   link: 
