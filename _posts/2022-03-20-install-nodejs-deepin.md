@@ -1,5 +1,5 @@
 ---
-title: Install nodejs on Deepin
+title: Install nodejs on Deepin 20.x
 author: 
   name: jmc
   link: 
@@ -70,43 +70,25 @@ sudo apt-get update
 sudo apt-get install nodejs
 ```
 
+5. chaeck installed version
+
+```console
+node --version
+npm --version
+```
+
 For more details take a look to this [**link**](https://github.com/nodesource/distributions/blob/master/README.md#manual-installation)
 
 
-### Common
-
-```
-This is a common code snippet, without syntax highlight and line number.
-```
-
-### Specific Languages
-
-#### Console
+### install angular cli
 
 ```console
-$ env |grep SHELL
-SHELL=/usr/local/bin/bash
-PYENV_SHELL=bash
+sudo npm install -g @angular/cli
 ```
 
-#### Shell
-
-```bash
-if [ $? -ne 0 ]; then
-    echo "The command was not successful.";
-    #do the needful / exit
-fi;
+```console
+ng --version
 ```
-
-### Specific filename
-
-```sass
-@import
-  "colors/light-typography",
-  "colors/dark-typography"
-```
-{: file='_sass/jekyll-theme-chirpy.scss'}
-
 
 ---
 ## Reverse Footnote
