@@ -1,5 +1,5 @@
 ---
-title: Docker on Deepin
+title: Docker on Deepin 20.x
 author: 
   name: jmc
   link: https://github.com/gitjmc

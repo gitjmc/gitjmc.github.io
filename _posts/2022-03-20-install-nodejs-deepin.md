@@ -1,7 +1,7 @@
 ---
 title: Install nodejs on Deepin 20.x
 author: 
-  name: jmc
+  name: 
   link: 
 date: 2022-03-20 20:53:45 -0400
 categories: [Dev, Frontend]
