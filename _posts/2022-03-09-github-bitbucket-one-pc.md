@@ -1,5 +1,5 @@
 ---
-title: manage github and bitbucket accounts on the same computer
+title: Multiple accounts (github and/or bitbucket) on the same computer
 author:
   name: 
   link: 
