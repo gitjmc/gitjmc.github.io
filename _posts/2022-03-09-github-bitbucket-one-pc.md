@@ -1,5 +1,5 @@
 ---
-title: Multiple accounts (github and/or bitbucket) on the same computer
+title: Multiple accounts (github and/or bitbucket) on one computer
 author:
   name: 
   link: 
@@ -16,6 +16,8 @@ For genratre ssh key
 ```cosole
 ssh-keygen -t ed25519 -C "your@email.com"
 ```
+
+for more details see this youtube - https://www.youtube.com/watch?v=vSeYsk4WYvg
 
 ## Create config file in .ssh folder
 
