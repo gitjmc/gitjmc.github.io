@@ -27,6 +27,7 @@ Cette page contient des liens que j'ai rencontré qq part de partout ...
 - Bootstrap:
   - Bootstrap Icons - ­<https://icons.getbootstrap.com/#usage>
   - Doc Bootstrap 4 - <https://getbootstrap.com/docs/4.0/components/>
+  - angular - <https://www.tektutorialshub.com/angular-tutorial/>
 ### CSS
   - css stats - Analyser et visualiser le stylesheets <https://cssstats.com/>
   - PageSpeed Insights <https://pagespeed.web.dev/>
