@@ -12,30 +12,51 @@ This post will guide you how to create an angular dev environment in docker.
 
 ## Contexte
 
-  - Pour ne installer sur son poste node, angular etc
-  - Si on veut travailler avec differentes versions de `node` et/ou angular `angular`
+  - Pour ne pas installer sur son poste node, angular etc ...
+  - Aussi avoir la possibilt/ de travailler avec differentes versions de `node` et/ou `angular`
 
 ## Comment
 
 en suivant [**cette source**](https://medium.com/@tal.ohana.x/dockerizing-angular-development-environment-done-right-4527155578fa) 
 
 1. cloner le repos (sinon cr/ere un nouveau avec son seed)
-2. verifier dockerfile et docker compose puis builder
+2. verifier `Dockerfile` et `docker-compose.yml`
+  - workdir
+  - la version de node
+  - le nom du service
+  - le nom du container 
+3. builder en executant `docker-compose up -d`
+  - To rebuild this image you must use `docker-compose build` or `docker-compose up --build`
+  
+```console
 $ docker-compose -f docker-compose.seed.yml run seed
-pour voir les logs
+# pour voir les logs
 $ docker-compose logs -f dev
-pour acceder au container
-docker-compose exec dev sh
+# pour acceder au container
+$ docker-compose exec dev sh
+```
+4. to deploy to ghp 
+  - in container add ssh key `ssh-keygen -t ed25519 -C "jmc@fromdocker.com"`
+  - if not installed so add ghp `npm install -g ghp` or `ng add angular-cli-ghpages`
+  - after each npm install repeat 5.
 
-Pour ne pas avoir les erreure dasn vsCode, apres chaque npm install on doit rouler ce batch
-docker cp dev:/angapp/package-lock.json . && \
-docker cp dev:/angapp/node_modules - > node_modules.tar && \
-    tar -xf node_modules.tar && \
-    rm -f temp_node_modules.tar
 
-quand on gener des composants, services ...
-on doit changer les permission du repertoire et ses fichiers de root a jmc (dans mon cas) sinon a chaque modification il va demander la permission
+5. 
+to fix errors on vscode, due to missed directory node_modules
+run this batch
+```console
+$ docker cp {containerName}:/angapp/package-lock.json . && \
+> docker cp {containerName}:/angapp/node_modules - > node_modules.tar && \
+> tar -xf node_modules.tar && \
+> rm -f node_modules.tar
+```
+
+when we generate components, services ... files in container, these are automaticly generated in the host.
+So we have to change permission owner
+```console
 $ sudo chown -R jmc:jmc folderName/
+```
+
 ---
 lancer le tout pour continuer le developpement:
 lancer l'api: aller dans le rep de l'api 
@@ -58,7 +79,21 @@ $npm run deploy:gh
 \{^_^}/ hi!
 ````
 
-## How?
+## Errors
 
+> node:internal/modules/cjs/loader:**936** throw err ...
+{: .prompt-danger }
 
-## nodejs in Docker
+1. In container remove `node_modules`
+2. run command `npm i` to create all dependicies ...
+3. Add ssh if doesn't exist
+4. re-run the batch to fix errors in vscode
+
+## some commands cli
+
+```console
+# Check angular version
+$ ng --version
+# Check npm version
+$ npm -v
+```

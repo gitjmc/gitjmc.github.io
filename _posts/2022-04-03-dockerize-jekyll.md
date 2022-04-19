@@ -30,6 +30,17 @@ services:
 {: file='docker-compose.yml' .nolineno}
 
 
+## Errors
+
+> Unable to monitor directories for changes because iNotify max watches exceeded.
+{: .prompt-danger }
+
+Run these commands from the host (not in the docker container)
+```console
+$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+$ sudo sysctl -p
+```
+
 ## Learn More
 
 For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).
