@@ -1,11 +1,11 @@
 ---
-title: ssh in Deepin
+title: ssh
 author:
   name: 
   link: 
 date: 2022-04-17 18:02:00 -0400
-categories: [Deepin, ssh]
-tags: [deepin, ssh, sshd]
+categories: [Linux, ssh]
+tags: [ssh, sshd]
 ---
 
 This post will try to guide you how to troubleshooting ssh in Deepin[^ref1].

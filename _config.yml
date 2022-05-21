@@ -21,7 +21,7 @@ timezone: America/Toronto
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: JMC-notes                          # the main title
+title: JMC-memo                          # the main title
 
 tagline: À la demande de sisi   # it will display as the sub-title
 

@@ -42,3 +42,16 @@ $ cp -r dir_to_remove/
 
 $ rm -rf dir_with_content_to_remove/
 ```
+### grep
+```console
+$ history | grep 'exec'
+
+```
+### scp
+Securely copy files and directories between two locations, [How to Use SCP Command to Securely Transfer Files](https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/).
+Another interesting link, [optimiser les recherches](https://www.linuxtricks.fr/news/10-logiciels-libres/352-ls-grep-wc-l-find-optimiser-les-recherches/).
+```console
+$ history | grep 'exec'
+
+```
+
