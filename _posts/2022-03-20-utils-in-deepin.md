@@ -22,9 +22,23 @@ Liste des outils que j'utilise souvent dans mon travail[^ref1].
 {: .prompt-info }
 
 
-## Solution
----
 # java
+
+installer java (source - https://www.youtube.com/watch?v=pkL-EtMbR3w)
+download java .deb
+double click ( debian package will do the rest :) )
+open .bachrc and add the following line
+
+export PATH="/usr/lib/jvm/jdk-18/bin:$PATH"
+in the terminal 
+```console
+$ . .bashrc
+$ java -version
+$ javac -version
+```
+> Not sure about the result (must be checked).
+{: .prompt-danger }
+
 
 Look for debian's [**version-releases**](https://en.wikipedia.org/wiki/Deepin) used in deepin.
 
@@ -82,15 +96,20 @@ npm --version
 For more details take a look to this [**link**](https://github.com/nodesource/distributions/blob/master/README.md#manual-installation)
 
 
-### Firefox 
+# Firefox 
 
 ```console
 sudo npm install -g @angular/cli
 ```
 
-```console
-ng --version
-```
+# synergy
+from the downloader pkg, use packge installer 
+
+# dbever-CE
+from the downloader pkg, use packge installer 
+
+# STS Tool
+from Deepin installer 
 
 ---
 ## Reverse Footnote
