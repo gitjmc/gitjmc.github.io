@@ -93,7 +93,7 @@ ng --version
 ---
 ## Reverse Footnote
 
-[^ref1]: Voir ce lien <https://github.com/nodesource/distributions/blob/master/README.md#manual-installation>
+[^ref1]: Voir ce lien: <https://github.com/nodesource/distributions/blob/master/README.md#manual-installation>
 [^ref2]: Içi avant ne veut pas dire après.  \ (o-o) /
  
 

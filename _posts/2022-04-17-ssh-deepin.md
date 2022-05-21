@@ -101,6 +101,17 @@ $ ssh Username@192.168.1.112
 ````
 where "Username" is the user name on machine "192.168.1.112". You may need to provide the password for this user during login.
 
+## Transfer files between two Unix computers
+Copy from local to another unix pc
+
+````console
+$ scp test.txt jmc@192.168.2.25:~/dev/java
+$ sudo scp test.txt jmc@192.168.2.25:~/dev/java
+
+$ scp -r ~/dbbackup jmc@192.168.2.25:~/
+$ sudo scp -r ~/dbbackup jmc@192.168.2.25:~/
+````
+
 ## Frequently asked question
 #### View and manage logged-in user
 Use `w` and `pkill` command to see active user in the system.
