@@ -54,4 +54,27 @@ Another interesting link, [optimiser les recherches](https://www.linuxtricks.fr/
 $ history | grep 'exec'
 
 ```
+### vim
+How can i save a file opened in vim as the wrong user
+>  `E45` readonly option is set (add ! to override).
+{: .prompt-danger }
 
+```console
+:w !sudo tee %
+```
+
+Explanation:
+  - :w – write
+  - !sudo – call shell sudo command
+  - tee – the output of write (:w) command is redirected using tee
+  - % – current file name
+
+another way
+```console
+press Esc, then type :qa! and press Enter
+```
+### uninstall
+for example to uninstall libreoffice
+```console
+$ sudo apt-get purge libreoffice*
+```
