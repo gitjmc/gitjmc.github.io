@@ -89,4 +89,4 @@ $ SET PASSWORD FOR 'app_user'@'%' = 'p@ssw0rd';
 
 ## Learn More
 
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).
+For more knowledge about time in docker, visit the [5 ways to change time in docker container: Posts](https://bobcares.com/blog/change-time-in-docker-container/).
