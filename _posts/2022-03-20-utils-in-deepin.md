@@ -13,10 +13,12 @@ image:
   width: 400
   height: 250
 ---
-> **Status** `draft`
+> **Status** `in progress`
 {: .prompt-danger }
 
-Liste des outils que j'utilise souvent dans mon travail[^ref1].
+Liste des outils que j'utilise souvent dans mon travail. 
+
+I add somereferences temporary handel restapi error[^ref1],  how to add UUID in DB[^ref2] and generator [^ref3].
 
 
 # TODO after installing Deepin
@@ -26,90 +28,22 @@ Liste des outils que j'utilise souvent dans mon travail[^ref1].
   - [TOP 15 Things You MUST DO After Installing Deepin Linux 20.3](https://www.linuxadictos.com/en/despues-instalar-deepin-os.html)
 
 # java
-> **Status** `not confirmed`
-{: .prompt-warning }
+> **Status** `confirmed`
+{: .prompt-info }
 
-installer java (source - https://www.youtube.com/watch?v=pkL-EtMbR3w)
-download java .deb
-double click ( debian package will do the rest :) )
-open .bachrc and add the following line
-
-export PATH="/usr/lib/jvm/jdk-18/bin:$PATH"
-in the terminal 
-```console
-$ . .bashrc
-$ java -version
-$ javac -version
-```
-> Not sure about the result (must be checked).
-{: .prompt-danger }
-
-
-Look for debian's [**version-releases**](https://en.wikipedia.org/wiki/Deepin) used in deepin.
-
-_buster_ - est la version de Debian de Deepin 20.4
-
-If curl is not installed then you have to do
-
-```console
-sudo apt update && sudo apt upgrade
-sudo apt install curl
-```
-1. Uninstall old node version
-
-```console
-sudo apt -y remove nodejs
-```
-
-2. Add the NodeSource package signing key
-
-```console
-KEYRING=/usr/share/keyrings/nodesource.gpg
-curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | sudo tee "$KEYRING" >/dev/null
-# wget can also be used:
-# wget --quiet -O - https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | sudo tee "$KEYRING" >/dev/null
-gpg --no-default-keyring --keyring "$KEYRING" --list-keys
-```
-
-3. Add the desired NodeSource repository
-
-```console
-# Replace with the branch of Node.js or io.js you want to install: node_6.x, node_8.x, etc...
-VERSION=node_16.x
-# Replace with the keyring above, if different
-KEYRING=/usr/share/keyrings/nodesource.gpg
-# The below command will set this correctly, but if lsb_release isn't available, you can set it manually:
-DISTRO="$(buster)"
-echo "deb [signed-by=$KEYRING] https://deb.nodesource.com/$VERSION $DISTRO main" | sudo tee /etc/apt/sources.list.d/nodesource.list
-echo "deb-src [signed-by=$KEYRING] https://deb.nodesource.com/$VERSION $DISTRO main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
-```
-
-4. update package lists and install Node.js
-
-```console
-sudo apt-get update
-sudo apt-get install nodejs
-```
-
-5. chaeck installed version
-
-```console
-node --version
-npm --version
-```
-
-For more details take a look to this [**link**](https://github.com/nodesource/distributions/blob/master/README.md#manual-installation)
-
+1. [My first ref](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-debian-10)
 
 # Firefox 
-> **Status** `not confirmed`
-{: .prompt-warning }
+> **Status** `confirmed`
+{: .prompt-info }
 
-FF - source - https://support.mozilla.org/en-US/kb/install-firefox-linux	
+[Used resource](https://support.mozilla.org/en-US/kb/install-firefox-linux), in section - **Install Firefox from Mozilla builds (For advanced users)**	
 
-section - Install Firefox from Mozilla builds (For advanced users)	
+[link to download](https://www.mozilla.org/en-CA/firefox/linux/)
 
-link to download - https://www.mozilla.org/en-CA/firefox/linux/
+> **Info** 
+- use `sudo` if you are not a root user
+{: .prompt-tip }
 
 Extract the contents of the downloaded file by typing:
 ```console
@@ -117,7 +51,6 @@ $ tar xjf firefox-*.tar.bz2
 ```
 Move the uncompressed Firefox folder to /opt:
 ```console
-$ mv firefox /opt
 $ sudo mv firefox /opt
 ```
 
@@ -164,19 +97,46 @@ Some links to get more more secure and privacy ...
 from the downloader pkg, use packge installer 
 
 # dbever-CE
-> **Status** `not confirmed`
-{: .prompt-warning }
-from the downloader pkg, use packge installer 
+> **Status** `confirmed`
+{: .prompt-info }
+From the downloader pkg, using packge installer. [Link to download](https://dbeaver.io/download/)
 
 # STS Tool
 > **Status** `not confirmed`
 {: .prompt-warning }
 from Deepin installer 
 
+> **Entre STS er JAVA**
+  pour ne pas laisser les mdp dans application.properties  voir le projet ses
+  - dans Run --> Run configuration --> (x)=Arguments
+    - add in VN arguments:
+      `-Dspring.mail.password=tomMDP`
+  {: .prompt-danger }
+mvn spring-boot:run -Dspring-boot.run.arguments="toto --spring.mail.password=yzrtgrumdpnsgnab"
+
+to run jar file
+```console
+$ java -jar nameOfJarFile
+```
+if error `error - No compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK?`, take a look to tihis link 
+[source to resolve error](https://www.studytonight.com/post/solved-no-compiler-is-provided-in-this-environment-perhaps-you-are-running-on-a-jre-rather-than-a-jdk)
+
+1. Run as --> Maven Test
+2. to run jar file with arg 
+  - in this case i add the email psw:
+```console
+java -jar ses-0.0.1-SNAPSHOT.jar --spring.mail.password=yzrtgrumdpnsgnab
+```
+  - in this case i add the email psw and the activ envirement:
+```console
+java -jar ses-0.0.1-SNAPSHOT.jar --spring.mail.password=yzrtgrumdpnsgnab spring.profiles.active=prod
+```
+
 ---
 ## Reverse Footnote
 
-[^ref1]: Voir ce lien: <https://github.com/nodesource/distributions/blob/master/README.md#manual-installation>
-[^ref2]: Içi avant ne veut pas dire après.  \ (o-o) /
+[^ref1]: java - error handler in springboot restapi: <https://www.youtube.com/channel/UCbA2jT41CAlZF_V1V-iSaCQ>
+[^ref2]: [how to use UUID as id](https://www.codementor.io/@petrepopescu/how-to-use-string-uuid-in-hibernate-with-mysql-1jrhjh6ef5)
+[^ref3]: [generator](https://theonegenerator.com/)  \ (o-o) /
  
 

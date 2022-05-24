@@ -78,3 +78,14 @@ for example to uninstall libreoffice
 ```console
 $ sudo apt-get purge libreoffice*
 ```
+### systemctl
+Debian Service manager
+
+```console
+systemctl status ssh
+systemctl start ssh
+systemctl stop ssh
+
+systemctl start snapd.service
+systemctl status snapd.service
+```
