@@ -1,20 +1,20 @@
 ---
-title: Dockerize Jekyll
+title: Degoogled your phone
 author:
   name: 
   link: 
-date: 2022-04-03 18:40:00 -0400
-categories: [Docker, Jekyll]
-tags: [dev, docker, tuto]
+date: 2023-02-16 20:40:00 -0400
+categories: [Privacy, GrapheneOS]
+tags: [degoogled, pixel, tuto]
 render_with_liquid: false
 ---
 
-This post will guide you how to dockerize Jekyll.
+This post will guide you how to install GrapheneOS.
 
 ## Prerequistes
 
- - Docker installed;
- - docker-compose.yaml
+ - Google Pixel;
+ - GrapheneOS
  
 ```yaml
 version: '3'
@@ -45,16 +45,7 @@ Run these commands from the host (not in the docker container)
 $ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 $ sudo sysctl -p
 ```
-to display logs
-```console
-docker logs -f container-name
-
-docker-compose logs -f service_name
-
-```
-
 
 ## Learn More
 
 For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).
-
