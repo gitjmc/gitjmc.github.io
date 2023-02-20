@@ -1,10 +1,10 @@
 ---
-title: ssh
+title: ssh in linux
 author:
   name: 
   link: 
 date: 2022-04-17 18:02:00 -0400
-categories: [Linux, ssh]
+categories: [Security, ssh]
 tags: [ssh, sshd]
 ---
 
