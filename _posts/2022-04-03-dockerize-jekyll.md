@@ -53,8 +53,22 @@ docker-compose logs -f service_name
 
 ```
 
+## deploy to github
 
-## Learn More
+> Be sure to point to the write repository, in my case to `gitjmc` repo.
+{: .prompt-warning }
 
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).
+just an example to do `/path/to/a/file.extend`{: .filepath}
 
+```console
+$ git add .
+
+$ git commit -m"update Dockerize Jekyll's post"
+
+$ git pull
+
+git push
+```
+
+## backup data
+all my data are in current directory (see volumes in `docker-compose.yaml`)
