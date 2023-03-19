@@ -181,6 +181,113 @@ services:
 ```
 {: file="docker-compose.yaml" }
 
+> In this case we have `5 peers`, if you want to change the number of peers, so you have to restart `docker compose`.
+{: .prompt-tip }
+
+
+# Install WireGuard VPN as Client[^ref-6]
+
+## Prerequisites for Deepin
+
+Add the repo package to deepin
+
+```console
+$ echo "deb http://deb.debian.org/debian/ buster-backports main " | \
+$ sudo tee /etc/apt/sources.list.d/buster-backports.list
+$ sudo apt update
+$ sudo apt install -t buster-backports wireguard-dkms wireguard-tools
+```
+If you have this error, install openresolv as shown below.
+> ----- resolve error: /usr/bin/wg-quick: line 32: resolvconf: command not found - https://superuser.com/questions/1500691/usr-bin-wg-quick-line-31-resolvconf-command-not-found-wireguard-debian
+{: .prompt-danger }
+
+```console
+$ sudo apt install openresolv
+```
+
+## Prerequisites
+- server installed
+
+| Key          | Value           |
+|:-------------|----------------:|
+| ip server    | 207.148.66.172  |
+| wg port      | 33333           |
+| range ip vpn | 192.168.10.0/24 |
+| public key   | on the server   |
+| private key  | on the server   |
+
+
+## Update system
+
+```console
+$ sudo apt update -y
+```
+
+## install wg client
+
+### install wg client on the system
+
+```console
+$ sudo apt install wireguard -y
+```
+
+### Go to /etc/wireguard/ as sudo
+
+```console
+$ sudo su -
+$ cd /etc/wireguard/
+```
+
+### create the public and the private keys to communicate with the server
+
+```console
+$ wg genkey | tee privatekey | wg pubkey | tee publickey
+```
+
+> Tow files are created publickey and privatekey inside  `/etc/wireguard/`.
+{: .prompt-tip }
+
+### Show private and public key and note them
+
+## Configure wireguard client 
+
+### create config file called wg0.conf
+
+### edit wg0.conf
+
+## Add client on wg server
+
+### add client on wg server
+
+### verify config file
+
+### save configure file
+
+## start connection and testing on client host
+
+### start the connection
+
+```console
+$ wg-quick up wg0
+```
+
+### Verify
+```console
+$ ifconfig
+```
+> You should see wg0 interface.
+{: .prompt-tip }
+
+## verify servier side
+### verify server side
+
+```console
+$ wg show wg0
+```
+
+> You should see peerX.
+{: .prompt-tip }
+
 
 
 # tempo content to delete
@@ -203,6 +310,43 @@ AllowedIPs = 10.13.13.2/32
 {: file="/etc/wireguard/wg0.conf" }
 
 
+# Utiles
+
+## To view connected clients
+```console
+$ wg
+```
+### With docker
+You have to execute commande inside docker
+```console
+$ docker exec -it containerName /bin/baash
+
+# inside docker container
+$ wg
+```
+
+## Get public ip address with cli
+```console
+$ curl ifconfig.me
+```
+```console
+$ curl ipinfo.io/ip
+```
+```console
+$ curl api.ipify.org
+```
+```console
+$ curl checkip.dyndns.org
+```
+```console
+$ curl ident.me
+```
+```console
+$ curl ipecho.net/plain
+```
+
+
+
 # Resources
 
 [^ref-1]: [**Wireguard installation**](https://www.wireguard.com/install/)
@@ -210,3 +354,6 @@ AllowedIPs = 10.13.13.2/32
 [^ref-3]: [**How to Install and Configure WireGuard VPN Server on Ubuntu (youtube)**](https://www.youtube.com/watch?v=ZMqUyu53PbA) 
 [^ref-4]: [**The Beginner’s Guide to iptables, the Linux Firewall**](https://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall) 
 [^ref-5]: [**Iptables Tutorial – Securing Ubuntu VPS with Linux Firewall**](https://www.hostinger.com/tutorials/iptables-tutorial#:~:text=Simply%20put%2C%20iptables%20is%20a,incoming%20and%20outgoing%20data%20packets.)
+[^ref-6]: [**Install and Configure WireGuard Client on Ubuntu**](https://www.youtube.com/watch?v=3OkQpgIxhd8&t=0s)
+
+ 
