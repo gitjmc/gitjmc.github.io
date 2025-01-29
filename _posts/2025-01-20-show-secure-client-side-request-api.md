@@ -1,5 +1,5 @@
 ---
-title: Api request from client side
+title: Securing API requests from the client side
 author:
   name: 
   link: 
