@@ -1,11 +1,11 @@
 ---
-title: Dokerize Gogs with MySql 
+title: Dockerize Gogs with MySql 
 author:
   name: 
   link: 
 date: 2025-01-27 20:35:00 -0400
-categories: [Markeying]
-tags: [vbb]
+categories: [Privacy]
+tags: [docker, gogs, git, mysql]
 render_with_liquid: false
 ---
 

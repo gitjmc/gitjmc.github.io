@@ -3,7 +3,7 @@ title: Functional Analysis Example
 author:
   name: 
   link: 
-date: 2025-02-07 15:35:00 -0400
+date: 2025-02-06 15:35:00 -0400
 categories: [Divers]
 tags: [FA]
 render_with_liquid: false

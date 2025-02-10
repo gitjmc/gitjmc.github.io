@@ -3,7 +3,7 @@ title: List of 100 essential Vim commands
 author:
   name: 
   link: 
-date: 2025-02-06 02:35:00 -0400
+date: 2025-02-06 18:35:00 -0400
 categories: [DEV]
 tags: [vim]
 render_with_liquid: false
