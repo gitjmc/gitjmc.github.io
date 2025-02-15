@@ -5,7 +5,7 @@ author:
   link: 
 date: 2025-02-07 11:32:00 -0400
 categories: [Architecture]
-tags: [real-time]
+tags: [real-time, data]
 render_with_liquid: false
 ---
 
@@ -217,4 +217,8 @@ This architecture ensures **real-time updates**, **scalability**, and a **great 
 
 ## Learn More
 
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).
+
+  ![gh-pages-sources](/2019-08-09-getting-started/gh-pages-sources.png){: width="1580" height="250" }
+
+  ![gh-pages-sources](/commons/HL-Arch-Diagram.png){: width="501" height="652" }
+    
