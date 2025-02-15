@@ -67,37 +67,7 @@ The backend handles data processing, storage, and real-time updates.
 
 ### **High-Level Architecture Diagram**
 
-```
-+-------------------+       +-------------------+       +-------------------+
-|   Third-Party API |       |   Web Scraping    |       |   User Database   |
-|   (e.g., ESPN)    |       |   (if no API)     |       |   (PostgreSQL)    |
-+-------------------+       +-------------------+       +-------------------+
-          |                          |                          |
-          v                          v                          v
-+---------------------------------------------------------------+
-|                         Backend Server                        |
-|  - Fetch data from APIs or scraping                           |
-|  - Process and store data in databases                        |
-|  - Push real-time updates via WebSockets/SSE                  |
-|  - Cache data using Redis                                     |
-+---------------------------------------------------------------+
-          |                          |                          |
-          v                          v                          v
-+-------------------+       +-------------------+       +-------------------+
-|   WebSocket/SSE   |       |   REST API        |       |   Redis Cache     |
-|   Server          |       |   (for non-real-  |       |                   |
-|                   |       |   time requests)  |       |                   |
-+-------------------+       +-------------------+       +-------------------+
-          |                          |                          |
-          v                          v                          v
-+---------------------------------------------------------------+
-|                         Frontend Client                       |
-|  - Display live scores and updates                            |
-|  - Use WebSocket/SSE for real-time updates                    |
-|  - Fetch historical data via REST API                         |
-+---------------------------------------------------------------+
-```
-
+  ![gh-pages-sources](/commons/HL-Arch-Diagram.png){: width="501" height="652" }
 ---
 
 ### **Technologies and Tools**
@@ -217,8 +187,4 @@ This architecture ensures **real-time updates**, **scalability**, and a **great 
 
 ## Learn More
 
-
-  ![gh-pages-sources](/2019-08-09-getting-started/gh-pages-sources.png){: width="1580" height="250" }
-
-  ![gh-pages-sources](/commons/HL-Arch-Diagram.png){: width="501" height="652" }
     
