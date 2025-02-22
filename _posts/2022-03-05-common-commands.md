@@ -4,7 +4,7 @@ author:
   name: jmc
   link: https://github.com/cotes2020
 date: 2022-03-05 20:24:00 -0500
-categories: [Linux, CLI]
+categories: [CLI]
 tags: [cli, linux]
 ---
 
