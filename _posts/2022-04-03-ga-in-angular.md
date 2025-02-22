@@ -4,7 +4,7 @@ author:
   name: 
   link: 
 date: 2022-04-03 19:15:00 -0400
-categories: [Google Analytics]
+categories: [Marketing]
 tags: [dev, ga, tuto, angular]
 ---
 

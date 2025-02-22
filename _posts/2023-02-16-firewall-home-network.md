@@ -4,10 +4,12 @@ author:
   name: 
   link: 
 date: 2023-02-16 21:35:00 -0400
-categories: [Secure, Network]
+categories: [Security, Network]
 tags: [nextcloud, nginxproxymanager, tuto]
 render_with_liquid: false
 ---
+
+CE N'est pas le bon contenu ...
 
 This post will guide you how to install nextcloud.
 Je dois ajouter tous cce que je pourrai trouver ...

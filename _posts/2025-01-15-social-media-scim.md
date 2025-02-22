@@ -4,7 +4,7 @@ author:
   name: 
   link: 
 date: 2025-01-15 20:35:00 -0400
-categories: [Markering]
+categories: [Marketing]
 tags: [scim, IAM, social-media]
 render_with_liquid: false
 ---

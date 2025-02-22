@@ -4,7 +4,7 @@ author:
   name: 
   link: 
 date: 2022-03-06 08:46:00 -0500
-categories: [Internet]
+categories: [Divers]
 tags: [dev, doc, tuto, security, access]
 ---
 
