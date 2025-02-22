@@ -4,7 +4,7 @@ author:
   name: 
   link: 
 date: 2025-01-09 20:35:00 -0400
-categories: [Archiecture]
+categories: [Architecture]
 tags: [strategy-pattern]
 render_with_liquid: false
 
