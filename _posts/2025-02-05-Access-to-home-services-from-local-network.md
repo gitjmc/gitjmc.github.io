@@ -4,7 +4,7 @@ author:
   name: 
   link: 
 date: 2025-02-05 20:35:00 -0400
-categories: [Archiercture]
+categories: [Architecture]
 tags: [privacy, docker, wireguard, local-network, local-services]
 render_with_liquid: false
 ---
