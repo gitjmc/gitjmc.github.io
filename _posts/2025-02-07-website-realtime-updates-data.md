@@ -185,6 +185,4 @@ server.listen(3000, () => {
 
 This architecture ensures **real-time updates**, **scalability**, and a **great user experience**. Let me know if you need further details or help with implementation!
 
-## Learn More
-
-    
+   

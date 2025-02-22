@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-02-09 20:35:00 -0400
-categories: [security]
-tags: [mtls, protocol]
+categories: [Architecture]
+tags: [mtls, protocol, certificate]
 render_with_liquid: false
 ---
 

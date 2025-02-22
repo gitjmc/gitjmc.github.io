@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-02-10 11:35:00 -0400
-categories: [Alerts]
-tags: [telgram, alert, springboot, email]
+categories: [Architecture]
+tags: [telgram, alert, bot, spring-boot, email]
 render_with_liquid: false
 ---
 Implementing **automated alerts** for your IoT system (e.g., for garden irrigation, pool pump, or heater) is a great way to stay informed about system status, anomalies, or failures. Below, I’ll guide you through setting up **Telegram** and **email alerts** using **Spring Boot** as the backend.

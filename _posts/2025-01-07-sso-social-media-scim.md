@@ -4,7 +4,7 @@ author:
   name: 
   link: 
 date: 2025-01-07 20:35:00 -0400
-categories: [DEV]
+categories: [Marketing]
 tags: [sso, access, idPs]
 render_with_liquid: false
 ---
@@ -199,7 +199,3 @@ Sprout Social supports SSO for enterprise accounts, enabling teams to manage soc
 
 ### **Conclusion**
 Many social media platforms and marketing tools support **SSO** for enterprise accounts, enabling secure and centralized access management. By integrating SSO with your organization's **Identity Provider (IdP)**, you can streamline access, enhance security, and improve compliance. Let me know if you need help setting up SSO for any specific platform! 🚀
-
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

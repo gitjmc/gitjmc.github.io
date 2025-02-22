@@ -5,7 +5,7 @@ author:
   link: 
 date: 2023-02-16 20:55:00 -0400
 categories: [Privacy]
-tags: [nextcloud, nginxproxymanager, tuto]
+tags: [nextcloud, nginx-proxymanager, tuto]
 render_with_liquid: false
 ---
 
@@ -47,7 +47,3 @@ Run these commands from the host (not in the docker container)
 $ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 $ sudo sysctl -p
 ```
-
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

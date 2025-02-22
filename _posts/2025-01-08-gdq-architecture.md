@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-01-08 20:35:00 -0400
-categories: [DEV]
-tags: [api, security, modularity]
+categories: [Architecture, DEV]
+tags: [api, security, modularity, soa]
 render_with_liquid: false
 ---
 To design a **modular Spring Boot application** where external applications can selectively use specific modules (task jobs) from your application, you can follow a **microservices-based architecture** or a **plugin-based architecture**. Below is a detailed explanation of how to achieve this elegantly:
@@ -456,7 +456,3 @@ public class TaskJobService {
 ### **Conclusion**
 The **Plugin-Based Architecture** ensures that each external application can use an instance of your application with **selected modules**. This approach is elegant, flexible, and easy to maintain. Let me know if you need further clarification or assistance! 🚀
 
-
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

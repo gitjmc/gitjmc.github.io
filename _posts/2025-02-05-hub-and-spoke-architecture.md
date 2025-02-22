@@ -5,7 +5,7 @@ author:
   link: 
 date: 2025-02-05 02:35:00 -0400
 categories: [Architecture]
-tags: [hub and spoke, IT design]
+tags: [hub-and-spoke]
 render_with_liquid: false
 ---
 
@@ -94,7 +94,3 @@ You’re hosting services at home (Nextcloud, Gogs) and want to access them remo
 ---
 
 For your described use case (privacy-focused services at home, remote access via WireGuard), the hub-and-spuche architecture is **an excellent choice**. It balances security, scalability, and ease of management. Let me know if you’d like help optimizing it further! 😊
-
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

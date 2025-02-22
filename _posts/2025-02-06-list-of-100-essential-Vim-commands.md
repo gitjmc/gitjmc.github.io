@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-02-06 18:35:00 -0400
-categories: [DEV]
-tags: [vim]
+categories: [DEV, CLI]
+tags: [vim, edi]
 render_with_liquid: false
 ---
 
@@ -149,6 +149,3 @@ Vim is a powerful text editor, but it has a steep learning curve. Below is a lis
 
 Let me know if you need further clarification or examples! 🚀
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

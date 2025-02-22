@@ -5,7 +5,7 @@ author:
   link: 
 date: 2025-02-08 16:35:00 -0400
 categories: [Architecture]
-tags: [docker]
+tags: [docker, data, ingestion, automation]
 render_with_liquid: false
 ---
 
@@ -193,6 +193,3 @@ app.listen(3000, () => {
 
 If you’d like, I can help you dive deeper into any specific part of the implementation (e.g., MQTT setup, Kafka integration, or authentication). Let me know! 😊
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

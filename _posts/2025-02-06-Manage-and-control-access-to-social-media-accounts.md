@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-02-06 02:35:00 -0400
-categories: [Social media]
-tags: [control, access, scim, sso]
+categories: [Marketing]
+tags: [control, access, scim, sso, social-media]
 render_with_liquid: false
 ---
 
@@ -164,6 +164,3 @@ For a **large enterprise** with **multiple accounts** and **third-party partners
 ### **Conclusion**
 By using a **centralized SMM platform**, integrating **SSO**, implementing **RBAC**, and following best practices for **third-party access management**, you can securely and efficiently manage social media accounts in a large enterprise. Let me know if you need further assistance! 🚀
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

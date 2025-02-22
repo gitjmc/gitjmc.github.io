@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-01-06 20:35:00 -0400
-categories: [DEV]
-tags: [api, security, client-side]
+categories: [Marketing]
+tags: [sso, access, idPs, scim, security]
 render_with_liquid: false
 ---
 Yes, it is possible to access **Facebook** (and other Meta platforms like Instagram and WhatsApp) through **enterprise Single Sign-On (SSO)** configuration and the **SCIM (System for Cross-domain Identity Management)** protocol. This allows enterprises to manage user access to Facebook Business Manager and other Meta tools securely and efficiently.
@@ -112,6 +112,3 @@ Facebook supports SSO and SCIM integration with major IdPs, including:
 ### **Conclusion**
 By configuring **SSO** and **SCIM** for Facebook Business Manager, enterprises can streamline access management, enhance security, and automate user provisioning. This is especially useful for large organizations with multiple users and strict compliance requirements. Let me know if you need further assistance! 🚀
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

@@ -4,7 +4,7 @@ author:
   name: 
   link: 
 date: 2025-02-07 16:35:00 -0400
-categories: [Divers]
+categories: [Privacy]
 tags: [apps, free, opensource]
 render_with_liquid: false
 ---
@@ -180,6 +180,3 @@ Here’s a comprehensive list of **free, open-source, and privacy-respecting alt
 
 This list provides **privacy-respecting alternatives** to popular proprietary services. Many of these tools are **self-hostable**, giving you full control over your data. Let me know if you need help setting up any of these! 🚀
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

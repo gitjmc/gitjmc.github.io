@@ -4,8 +4,8 @@ author:
   name: 
   link:
 date: 2025-02-04 01:03:00 -0700
-categories: [Docker, Cloud]
-tags: [docker, ubuntu, wireguard, gogs, nextcoud]
+categories: [Architecture]
+tags: [docker, cloud, ubuntu, wireguard, gogs, nextcoud]
 math: true
 mermaid: true
 image:
@@ -200,8 +200,6 @@ You can add more devices (e.g., laptop, phone) as peers to the WireGuard network
 - **Scalability**: Easily add more devices or services.
 
 ---
-
-Let me know if you need further clarification or help with any part of the setup! 😊
 
 ### Reverse Footnote
 

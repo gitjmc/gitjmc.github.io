@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-02-07 10:35:00 -0400
-categories: [Docker]
-tags: [network, cmd]
+categories: [DEV, Docker]
+tags: [network, cmd, docker]
 render_with_liquid: false
 ---
 
@@ -241,6 +241,3 @@ docker network rm my_bridge_network
 
 This guide covers the essentials of Docker networking. Let me know if you need further clarification or help with specific scenarios!
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

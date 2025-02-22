@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-02-05 03:35:00 -0400
-categories: [Privacy]
-tags: [docker-compose,]
+categories: [Architecture]
+tags: [hub-and-spoke, docker, docker-compose]
 render_with_liquid: false
 ---
 
@@ -208,6 +208,3 @@ volumes:
 
 This setup provides a secure and private way to access your home services via a cloud server. Let me know if you need further assistance! 😊
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

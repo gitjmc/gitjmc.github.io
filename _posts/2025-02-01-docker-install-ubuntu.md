@@ -4,7 +4,7 @@ author:
   name: 
   link:
 date: 2025-02-01 01:03:00 -0700
-categories: [Docker, Ubuntu]
+categories: [DEV, Linux]
 tags: [docker, ubuntu, os]
 math: true
 mermaid: true

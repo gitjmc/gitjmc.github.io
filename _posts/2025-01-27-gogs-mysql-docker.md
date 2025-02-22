@@ -5,7 +5,7 @@ author:
   link: 
 date: 2025-01-27 20:35:00 -0400
 categories: [Privacy]
-tags: [docker, gogs, git, mysql]
+tags: [docker, gogs, git, mysql, home-lac]
 render_with_liquid: false
 ---
 
@@ -219,6 +219,3 @@ If you want to use HTTPS, set up Nginx as a reverse proxy:
 ### **Conclusion**
 By following these best practices, you can run **Gogs** with **MySQL** in **Docker** and make it accessible via **SSH** securely and efficiently. Let me know if you need further assistance! 🚀
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

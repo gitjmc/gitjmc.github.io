@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-02-09 22:35:00 -0400
-categories: [Security]
-tags: [authentication]
+categories: [Architecture]
+tags: [authentication, security]
 render_with_liquid: false
 ---
 
@@ -230,6 +230,3 @@ app.listen(3000, () => {
 If you’d like, I can help you implement any of these methods in your system or provide more details on a specific approach. Let me know! 😊
 
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

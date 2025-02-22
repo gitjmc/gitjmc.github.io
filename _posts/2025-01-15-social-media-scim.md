@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-01-15 20:35:00 -0400
-categories: [MKTG]
-tags: [scim, IAM]
+categories: [Markering]
+tags: [scim, IAM, social-media]
 render_with_liquid: false
 ---
 
@@ -114,7 +114,3 @@ For platforms that do not support SCIM, you can use the following alternatives:
 ### **Conclusion**
 While **SCIM** is a powerful protocol for automating user provisioning and deprovisioning, not all social media platforms support it. Platforms like **Facebook (Meta)**, **LinkedIn**, **Google Workspace**, **Hootsuite**, and **Sprout Social** do support SCIM, but others like **Twitter**, **Instagram**, **Pinterest**, **TikTok**, **Snapchat**, and **Reddit** do not. For platforms without SCIM support, you can use **manual management** or **API-based automation** as alternatives. Let me know if you need further assistance! 🚀
 
-
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

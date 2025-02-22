@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-02-10 22:35:00 -0400
-categories: [API]
-tags: [security]
+categories: [DEV]
+tags: [api, security]
 render_with_liquid: false
 ---
 
@@ -146,6 +146,4 @@ Protecting your API to ensure it can only be accessed by your Single Page Applic
 
 By combining these strategies, you can significantly improve the security of your API and ensure it is only accessible by your SPA.
 
-## Learn More
 
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

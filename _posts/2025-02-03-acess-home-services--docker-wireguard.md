@@ -1,5 +1,5 @@
 ---
-title: Secure home lab access via wireguard 
+title: Remotely access to home sercices via wireguard 
 author:
   name: 
   link: 
@@ -269,6 +269,3 @@ jellyfin:
 - **Scalability**: Add more devices as WireGuard peers or deploy additional Docker services.
 
 This setup ensures your self-hosted services remain private and accessible only to your trusted devices. Let me know if you need help with specific services!
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

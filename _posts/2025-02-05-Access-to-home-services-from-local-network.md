@@ -1,11 +1,11 @@
 ---
-title: Access to home services from local network 
+title: Access to home services from local network (DS)
 author:
   name: 
   link: 
 date: 2025-02-05 20:35:00 -0400
-categories: [Privacy]
-tags: [docker, wireguard, local network, home services]
+categories: [Archiercture]
+tags: [privacy, docker, wireguard, local-network, local-services]
 render_with_liquid: false
 ---
 
@@ -183,8 +183,4 @@ Set up a reverse proxy (e.g., Nginx, Traefik) to handle routing for both local a
 
 ---
 
-Let me know if you need help implementing any of these solutions! 😊
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

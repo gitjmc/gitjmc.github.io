@@ -5,7 +5,7 @@ author:
   link:
 date: 2025-02-04 03:06:00 -0700
 categories: [Docker, Cloud]
-tags: [docker, ubuntu, wireguard, gogs, nextcoud]
+tags: [docker-compose, ubuntu, wireguard, gogs, nextcoud]
 math: true
 mermaid: true
 image:
@@ -210,7 +210,6 @@ volumes:
 - **Updates**: Keep your Docker images and host system up to date.
 
 ---
-
 
 ### Reverse Footnote
 

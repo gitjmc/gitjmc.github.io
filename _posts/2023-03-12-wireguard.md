@@ -345,8 +345,6 @@ $ curl ident.me
 $ curl ipecho.net/plain
 ```
 
-
-
 # Resources
 
 [^ref-1]: [**Wireguard installation**](https://www.wireguard.com/install/)

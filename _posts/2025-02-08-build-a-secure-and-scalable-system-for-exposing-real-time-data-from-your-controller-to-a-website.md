@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-02-08 20:35:00 -0400
-categories: [Architeture, Real-time]
-tags: [docker, microservice, ]
+categories: [Architeture, ]
+tags: [docker, microservice, real-time]
 render_with_liquid: false
 ---
 
@@ -104,6 +104,3 @@ To build a secure and scalable system for exposing real-time data from your cont
 By combining these technologies and best practices, you can build a secure, scalable, and future-proof system for real-time device monitoring and control.
 
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

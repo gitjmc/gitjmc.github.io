@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-02-08 13:35:00 -0400
-categories: [Architecture, Real-time]
-tags: [controller,design, patterns, ]
+categories: [Architecture]
+tags: [controller, design, patterns, real-time]
 render_with_liquid: false
 ---
 
@@ -165,6 +165,3 @@ Here’s a simplified diagram of the architecture:
 
 If you’d like, I can help you dive deeper into any specific part of the architecture (e.g., API design, Kubernetes setup, or frontend implementation). Let me know how you’d like to proceed! 😊
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

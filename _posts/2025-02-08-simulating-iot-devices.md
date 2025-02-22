@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-02-08 17:35:00 -0400
-categories: [Simulation]
-tags: [iot, devices]
+categories: [Architecture]
+tags: [simlation, iot, devices, test]
 render_with_liquid: false
 ---
 
@@ -208,6 +208,3 @@ Once you’ve simulated devices, you can test the performance of your system usi
 
 
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

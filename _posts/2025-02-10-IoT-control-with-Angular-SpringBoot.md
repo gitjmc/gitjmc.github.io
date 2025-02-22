@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-02-10 10:35:00 -0400
-categories: [IoT]
-tags: [Angular, springboot, SSE, docker, real-time, PostgreSQL, Prometheus, Grafana]
+categories: [Architecture]
+tags: [architecture, angular, springboot, sse, docker, real-time, postgreSQL, prometheus, grafana]
 render_with_liquid: false
 ---
 

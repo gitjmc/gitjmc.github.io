@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-02-09 20:35:00 -0400
-categories: [Automation, Home]
-tags: [control, iot]
+categories: [Architecture]
+tags: [control, iot, automation]
 render_with_liquid: false
 ---
 
@@ -174,8 +174,3 @@ To secure your system:
 - For remote access, use **Tailscale** or **Cloudflare Tunnel** instead of exposing ports.
 - Implement **automated alerts** (e.g., Telegram/Email notifications for leaks or device failures).
 
-Let me know if you want help with code snippets, circuit diagrams, or specific configurations! 😊
-
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-01-03 20:35:00 -0400
-categories: [DEV]
-tags: [api, security, client-side]
+categories: [Marketing]
+tags: [api, security, client-side, access]
 render_with_liquid: false
 ---
 
@@ -106,7 +106,3 @@ Yes, if an organization has **multiple Facebook Pages** (or other Meta assets li
 
 ### **Conclusion**
 Yes, employees can access **multiple Facebook Pages** through **SSO** by logging in to **Facebook Business Manager**. However, access to individual Pages is controlled by their assigned roles and permissions within Business Manager. By combining SSO with proper role management and SCIM (if available), organizations can ensure secure and efficient access to multiple Pages and assets. Let me know if you need further clarification! 🚀
-
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

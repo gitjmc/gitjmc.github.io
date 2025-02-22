@@ -1,5 +1,5 @@
 ---
-title: Functional Analysis Example
+title: Functional Analysis (FA) Example
 author:
   name: 
   link: 
@@ -169,6 +169,3 @@ These describe how the system should perform.
 This example demonstrates how to perform a **Functional Analysis** in a TI context. Let me know if you need further details or help with specific tools! 🚀
 
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

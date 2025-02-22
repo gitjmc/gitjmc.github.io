@@ -48,6 +48,3 @@ Imagine you run an online store selling electronics. You know that customers who
 
 In summary, value-based bidding is a powerful strategy that aligns your advertising efforts with your business goals by focusing on the value of conversions rather than just the cost of acquiring them. It leverages automation and data to optimize bids in real-time, helping you get the most out of your advertising budget.
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

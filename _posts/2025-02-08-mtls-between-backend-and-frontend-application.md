@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-02-09 12:35:00 -0400
-categories: [Scurity]
-tags: [protocol, mtls]
+categories: [Architecture]
+tags: [security, protocol, mtls]
 render_with_liquid: false
 ---
 
@@ -138,7 +138,3 @@ fetchData() {
 
 If you have a specific use case in mind, I can help you design a more tailored solution! Let me know. 😊
 
-
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

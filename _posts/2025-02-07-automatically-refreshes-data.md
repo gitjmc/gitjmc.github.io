@@ -5,7 +5,7 @@ author:
   link: 
 date: 2025-02-07 11:35:00 -0400
 categories: [Architecture]
-tags: [real-time]
+tags: [real-time, data]
 render_with_liquid: false
 ---
 
@@ -227,7 +227,3 @@ while True:
 ---
 
 This architecture ensures **real-time updates**, **scalability**, and a **seamless user experience**. Let me know if you need help with specific components (e.g., Kubernetes setup, database design)! 🏀🚀
-
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

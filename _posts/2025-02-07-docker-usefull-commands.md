@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-02-07 09:35:00 -0400
-categories: [Docker]
-tags: [CLI]
+categories: [DEV, Docker]
+tags: [cli, docker]
 render_with_liquid: false
 ---
 
@@ -335,6 +335,3 @@ Here’s a **comprehensive list of the most useful Docker commands** for managin
 
 This list covers the **most useful Docker commands** for day-to-day operations. Let me know if you need further clarification or examples! 🐳🚀
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).

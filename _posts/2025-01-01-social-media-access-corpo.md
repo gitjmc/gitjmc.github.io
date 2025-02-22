@@ -4,8 +4,8 @@ author:
   name: 
   link: 
 date: 2025-01-01 20:35:00 -0400
-categories: [DEV]
-tags: [api, security, client-side]
+categories: [Marketing, Architecture]
+tags: [api, security, client-side, access]
 render_with_liquid: false
 ---
 Managing access to multiple social media accounts in a **large enterprise** requires a combination of **tools**, **policies**, and **best practices** to ensure security, efficiency, and consistency. Below is a comprehensive guide to help you manage this effectively:
@@ -172,6 +172,3 @@ Here’s how a typical workflow might look in a large enterprise:
 ### **Conclusion**
 Managing multiple social media accounts in a large enterprise requires a combination of **tools**, **policies**, and **best practices**. By using a **Social Media Management tool**, implementing **role-based access control**, and following a **social media policy**, you can ensure security, efficiency, and consistency across all accounts. Let me know if you need further assistance! 🚀
 
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).
