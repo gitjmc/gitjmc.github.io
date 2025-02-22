@@ -4,8 +4,8 @@ author:
   name: 
   link:
 date: 2025-02-04 03:06:00 -0700
-categories: [Archtecture, middle-ware]
-tags: [docker-compose, ubuntu, wireguard, gogs, nextcoud, Cloud]
+categories: [Architecture]
+tags: [docker-compose, ubuntu, wireguard, gogs, nextcoud, Cloud, middleware]
 math: true
 mermaid: true
 image:
