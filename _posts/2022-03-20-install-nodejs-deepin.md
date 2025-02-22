@@ -4,7 +4,7 @@ author:
   name: 
   link: 
 date: 2022-03-20 20:53:45 -0400
-categories: [Dev, Frontend]
+categories: [DEV]
 tags: [nodejs, npm, angular]
 math: true
 mermaid: true

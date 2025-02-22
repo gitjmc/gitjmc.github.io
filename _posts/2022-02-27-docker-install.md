@@ -4,8 +4,8 @@ author:
   name: 
   link:
 date: 2022-02-27 15:03:00 -0500
-categories: [Docker, Deepin]
-tags: [docker, os]
+categories: [Linux]
+tags: [deepin, docker, os]
 math: true
 mermaid: true
 image:

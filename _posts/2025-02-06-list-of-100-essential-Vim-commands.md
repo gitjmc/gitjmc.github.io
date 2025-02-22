@@ -4,7 +4,7 @@ author:
   name: 
   link: 
 date: 2025-02-06 18:35:00 -0400
-categories: [DEV, CLI]
+categories: [CLI]
 tags: [vim, edi]
 render_with_liquid: false
 ---
