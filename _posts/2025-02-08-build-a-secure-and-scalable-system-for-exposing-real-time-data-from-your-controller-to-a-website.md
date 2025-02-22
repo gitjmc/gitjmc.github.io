@@ -4,7 +4,7 @@ author:
   name: 
   link: 
 date: 2025-02-08 20:35:00 -0400
-categories: [Architeture, ]
+categories: [Architecture, ]
 tags: [docker, microservice, real-time]
 render_with_liquid: false
 ---
