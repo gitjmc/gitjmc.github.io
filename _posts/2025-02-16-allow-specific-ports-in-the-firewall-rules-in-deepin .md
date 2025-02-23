@@ -13,7 +13,7 @@ To allow specific ports in the firewall rules on Deepin OS, you can use **UFW (U
 
 ---
 
-### **1. Install UFW (if not already installed)**
+## **1. Install UFW (if not already installed)**
 UFW is usually pre-installed on Deepin, but if it’s not, you can install it:
 ```bash
 sudo apt update
@@ -22,7 +22,7 @@ sudo apt install ufw
 
 ---
 
-### **2. Check UFW Status**
+## **2. Check UFW Status**
 Before making changes, check the status of UFW to ensure it’s active and see the current rules:
 ```bash
 sudo ufw status
@@ -31,7 +31,7 @@ If UFW is inactive, you’ll need to enable it.
 
 ---
 
-### **3. Enable UFW**
+## **3. Enable UFW**
 If UFW is not already enabled, activate it:
 ```bash
 sudo ufw enable
@@ -40,7 +40,7 @@ This will start the firewall and apply default rules.
 
 ---
 
-### **4. Allow Specific Ports**
+## **4. Allow Specific Ports**
 To allow a specific port, use the following command:
 ```bash
 sudo ufw allow <port_number>
@@ -52,7 +52,7 @@ sudo ufw allow 80
 
 ---
 
-### **5. Allow Ports with Specific Protocols**
+## **5. Allow Ports with Specific Protocols**
 If you want to allow a port for a specific protocol (TCP or UDP), specify it:
 ```bash
 sudo ufw allow <port_number>/<protocol>
@@ -64,7 +64,7 @@ sudo ufw allow 443/tcp
 
 ---
 
-### **6. Allow a Range of Ports**
+## **6. Allow a Range of Ports**
 To allow a range of ports, use:
 ```bash
 sudo ufw allow <start_port>:<end_port>/<protocol>
@@ -76,7 +76,7 @@ sudo ufw allow 8000:9000/tcp
 
 ---
 
-### **7. Allow Services by Name**
+## **7. Allow Services by Name**
 UFW includes predefined rules for common services. You can allow a service by its name instead of specifying the port:
 ```bash
 sudo ufw allow <service_name>
@@ -92,16 +92,25 @@ less /etc/services
 
 ---
 
-### **8. Verify the Rules**
+## **8. Verify the Rules**
 After adding rules, verify them by checking the UFW status:
 ```bash
 sudo ufw status
 ```
 This will display a list of all active rules.
 
+### Tester le rendu
+asdfasdf asdfasdf
+
+#### Tester le rendu 12
+asdfasdf asdfasdf
+asdfasdf asdfasdf
+asdfasdf asdfasdf
+
+
 ---
 
-### **9. Delete a Rule (if needed)**
+## **9. Delete a Rule (if needed)**
 If you need to remove a rule, use:
 ```bash
 sudo ufw delete allow <port_number>
@@ -113,7 +122,7 @@ sudo ufw delete allow 80
 
 ---
 
-### **10. Disable UFW (if needed)**
+## **10. Disable UFW (if needed)**
 If you need to temporarily disable UFW, use:
 ```bash
 sudo ufw disable
@@ -121,7 +130,7 @@ sudo ufw disable
 
 ---
 
-### **11. Reset UFW (if needed)**
+## **11. Reset UFW (if needed)**
 To reset UFW to its default settings (removing all rules), use:
 ```bash
 sudo ufw reset
@@ -129,7 +138,7 @@ sudo ufw reset
 
 ---
 
-### **Example Scenario**
+## **Example Scenario**
 If you want to allow:
 - Port `22` for SSH,
 - Port `80` for HTTP,
