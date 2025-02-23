@@ -5,7 +5,7 @@ author:
   link: 
 date: 2025-02-10 10:35:00 -0400
 categories: [Architecture]
-tags: [architecture, angular, springboot, sse, docker, real-time, postgreSQL, prometheus, grafana]
+tags: [architecture, angular, spring-boot, sse, docker, real-time, postgreSQL, prometheus, grafana]
 render_with_liquid: false
 ---
 

@@ -5,7 +5,7 @@ author:
   link: 
 date: 2025-01-15 20:35:00 -0400
 categories: [Marketing]
-tags: [scim, IAM, social-media]
+tags: [scim, iam, social-media]
 render_with_liquid: false
 ---
 

@@ -5,7 +5,7 @@ author:
   link:
 date: 2025-02-04 01:03:00 -0700
 categories: [Architecture]
-tags: [docker, cloud, ubuntu, wireguard, gogs, nextcoud]
+tags: [docker, cloud, ubuntu, wireguard, gogs, nextcloud]
 math: true
 mermaid: true
 image:

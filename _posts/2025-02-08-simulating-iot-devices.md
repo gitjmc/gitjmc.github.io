@@ -5,7 +5,7 @@ author:
   link: 
 date: 2025-02-08 17:35:00 -0400
 categories: [Architecture]
-tags: [simlation, iot, devices, test]
+tags: [simulation, iot, devices, test]
 render_with_liquid: false
 ---
 

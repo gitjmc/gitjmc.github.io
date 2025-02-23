@@ -5,7 +5,7 @@ author:
   link: https://github.com/SilleBille
 date: 2021-01-03 18:32:00 +0800
 categories: [Blogging, Tutorial]
-tags: [google analytics, pageviews]
+tags: [ga, pageviews]
 ---
 
 

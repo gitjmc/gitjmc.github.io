@@ -5,7 +5,7 @@ author:
   link: 
 date: 2023-02-16 21:35:00 -0400
 categories: [Security, Network]
-tags: [nextcloud, nginxproxymanager, tuto]
+tags: [nextcloud, nginx-proxymanager, tuto]
 render_with_liquid: false
 ---
 
