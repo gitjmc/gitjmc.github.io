@@ -5,7 +5,7 @@ author:
   link: 
 date: 2022-05-21 10:25:45 -0400
 categories: [Linux]
-tags: [deepin, utils, java, FF, DBeaver]
+tags: [deepin, utils, java, FF, dbeaver]
 math: true
 mermaid: true
 image:
