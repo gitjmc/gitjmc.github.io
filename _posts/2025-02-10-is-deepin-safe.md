@@ -5,7 +5,7 @@ author:
   link: 
 date: 2025-02-10 21:35:00 -0400
 categories: [Linux]
-tags: [deepin, pricacy, security]
+tags: [deepin, privacy, security]
 render_with_liquid: false
 ---
 

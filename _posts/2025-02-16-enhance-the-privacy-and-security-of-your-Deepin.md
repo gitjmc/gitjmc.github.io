@@ -5,7 +5,7 @@ author:
   link: 
 date: 2025-02-16 19:35:00 -0400
 categories: [Linux, Privacy]
-tags: [seurity, privacy, deepin, linux]
+tags: [security, privacy, deepin, linux]
 render_with_liquid: false
 
 ---

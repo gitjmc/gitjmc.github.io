@@ -5,7 +5,7 @@ author:
   link: 
 date: 2025-02-15 09:35:00 -0400
 categories: [Privacy]
-tags: [docker, nextcloud, duckDNS, wireguard]
+tags: [docker, nextcloud, duckdns, wireguard]
 render_with_liquid: false
 mermaid: true
 ---

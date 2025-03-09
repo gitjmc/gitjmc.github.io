@@ -5,7 +5,7 @@ author:
   link: 
 date: 2025-02-06 15:35:00 -0400
 categories: [Divers]
-tags: [FA]
+tags: [fa]
 render_with_liquid: false
 ---
 Certainly! **Functional Analysis** in the context of **Information Technology (TI)** involves breaking down a system or application into its functional components to understand how it works, identify requirements, and ensure it meets user needs. Below is an example of a **Functional Analysis** for a **Customer Relationship Management (CRM) System** in a TI context.
