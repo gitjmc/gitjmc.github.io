@@ -11,7 +11,7 @@ render_with_liquid: false
 
 ### Create non-root user
 
-connecting to remote host with the same user
+connecting to remote host with the same user on local machine
 Try `root` 
 
 ```bash
@@ -42,7 +42,16 @@ from the local
 ```bash
 cat ~/.ssh/id_rsa.pub
 ```
-copy pub key and add it into `authorized_keys`
+copy public key and add it into `authorized_keys`
+
+copy the public key to the remote host in authorized_keys
+
+
+with root user add this command
+
+```bash
+usermod -aG sudo jmc
+```
 
 
 ### next command ...
