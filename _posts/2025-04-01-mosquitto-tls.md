@@ -9,11 +9,12 @@ tags: [cli]
 render_with_liquid: false
 ---
 
-# Mosquitto with Docker Compose: Base Authentication & Let's Encrypt (DuckDNS)
+# Base Authentication & Let's Encrypt (DuckDNS)
 
 Here's a comprehensive guide to set up Mosquitto with Docker Compose using base authentication and Let's Encrypt with a DuckDNS domain on a clean droplet.
 
 ## Prerequisites
+
 - A domain pointed to your droplet (via DuckDNS)
 - Docker and Docker Compose installed
 - Ports 80, 443, and 1883 open in your firewall
@@ -187,7 +188,7 @@ This setup provides a secure Mosquitto broker with:
 
 ----
 
-# Mosquitto with Docker Compose: Base Authentication & Let's Encrypt (Direct Setup)
+# Base Authentication & Let's Encrypt (Direct Setup)
 
 Here's a simplified setup that integrates Let's Encrypt directly with Mosquitto without using Nginx as a reverse proxy.
 
@@ -348,7 +349,7 @@ This direct approach is simpler than using Nginx as a reverse proxy while still 
 
 ---
 
-# From chatGpt
+# Base authentication ... From chatGpt
 To set up Mosquitto with Docker Compose, basic authentication, and Let's Encrypt on a clean droplet using a DuckDNS domain, follow these optimized steps:
 
 ## 1. Install Docker & Docker Compose
@@ -519,7 +520,7 @@ Are you getting specific errors? I can help debug.
 
 ---
 
-# From gros
+# From grok
 Setting up Mosquitto with Docker Compose, basic authentication, Let's Encrypt certificates, and a DuckDNS domain on a clean DigitalOcean droplet can be a powerful way to create a secure MQTT broker. Below, I’ll guide you through a streamlined, optimal approach to achieve this. I’ll assume you’re using Ubuntu (common for DigitalOcean droplets) and aim to avoid common pitfalls that might be causing your errors. If you share specific errors you're encountering, I can refine this further!
 
 ---
