@@ -1,5 +1,5 @@
 ---
-title: Hoe to secure Form in Qualtrics
+title: How to secure Form in Qualtrics
 author:
   name: 
   link: 
