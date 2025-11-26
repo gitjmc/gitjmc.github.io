@@ -4,7 +4,7 @@ author:
   name: 
   link: 
 date: 2025-03-03 07:35:00 -0400
-categories: [Iot]
+categories: [ESP32]
 tags: [docker, esp32, cam, sensors]
 render_with_liquid: false
 ---
