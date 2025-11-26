@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="en" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="generator" content="Jekyll v4.2.2" /><meta property="og:title" content="Server-Sent Events (SSE)" /><meta property="og:locale" content="en" /><meta name="description" content="Server-Sent Events (SSE) is a lightweight, HTTP-based protocol for real-time, one-way communication from the server to the client. It’s ideal for scenarios where the server needs to push updates to the client (e.g., real-time notifications, live data feeds). Below, I’ll explain when to use SSE, how it works, and how to implement it in your Spring Boot backend and Angular frontend." /><meta property="og:description" content="Server-Sent Events (SSE) is a lightweight, HTTP-based protocol for real-time, one-way communication from the server to the client. It’s ideal for scenarios where the server needs to push updates to the client (e.g., real-time notifications, live data feeds). Below, I’ll explain when to use SSE, how it works, and how to implement it in your Spring Boot backend and Angular frontend." /><link rel="canonical" href="https://gitjmc.github.io/posts/SSE/" /><meta property="og:url" content="https://gitjmc.github.io/posts/SSE/" /><meta property="og:site_name" content="JMC-memo" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2025-02-10T08:35:00-05:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="Server-Sent Events (SSE)" /><meta name="twitter:site" content="@twitter_username" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-02-23T17:20:43-05:00","datePublished":"2025-02-10T08:35:00-05:00","description":"Server-Sent Events (SSE) is a lightweight, HTTP-based protocol for real-time, one-way communication from the server to the client. It’s ideal for scenarios where the server needs to push updates to the client (e.g., real-time notifications, live data feeds). Below, I’ll explain when to use SSE, how it works, and how to implement it in your Spring Boot backend and Angular frontend.","headline":"Server-Sent Events (SSE)","mainEntityOfPage":{"@type":"WebPage","@id":"https://gitjmc.github.io/posts/SSE/"},"url":"https://gitjmc.github.io/posts/SSE/"}</script><title>Server-Sent Events (SSE) | JMC-memo</title><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/site.webmanifest"><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico"><meta name="apple-mobile-web-app-title" content="JMC-memo"><meta name="application-name" content="JMC-memo"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://cdn.jsdelivr.net" ><link rel="dns-prefetch" href="https://cdn.jsdelivr.net" ><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1/dist/magnific-popup.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get MODE_ATTR() { return "data-mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } static get ID() { return "mode-toggle"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } let self = this; /* always follow the system prefers */ this.sysDarkPrefers.addEventListener("change", () => { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.notify(); }); } /* constructor() */ get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode === ModeToggle.DARK_MODE; } get isLightMode() { return this.mode === ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } setDark() { $('html').attr(ModeToggle.MODE_ATTR, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_ATTR, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_ATTR); sessionStorage.removeItem(ModeToggle.MODE_KEY); } /* Notify another plugins that the theme mode has changed */ notify() { window.postMessage({ direction: ModeToggle.ID, message: this.modeStatus }, "*"); } } /* ModeToggle */ const toggle = new ModeToggle(); function flipMode() { if (toggle.hasMode) { if (toggle.isSysDarkPrefer) { if (toggle.isLightMode) { toggle.clearMode(); } else { toggle.setLight(); } } else { if (toggle.isDarkMode) { toggle.clearMode(); } else { toggle.setDark(); } } } else { if (toggle.isSysDarkPrefer) { toggle.setLight(); } else { toggle.setDark(); } } toggle.notify(); } /* flipMode() */ </script><body data-spy="scroll" data-target="#toc" data-topbar-visible="true"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/" alt="avatar" class="mx-auto"> <img src=" https://gitjmc.github.io/assets/img/favicons/avatar.jpg " alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title mt-3"> <a href="/">JMC-memo</a></div><div class="site-subtitle font-italic">À la demande de sisi</div></div><ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tag ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info-circle ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center align-items-center"> <button class="mode-toggle btn" aria-label="Switch Mode"> <i class="fas fa-adjust"></i> </button> <span class="icon-border"></span> <a href="https://github.com/gitjmc" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github"></i> </a> <a href="https://twitter.com/twitter_username" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['example','doamin.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Home </a> </span> <span>Server-Sent Events (SSE)</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..."> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="core-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>Server-Sent Events (SSE)</h1><div class="post-meta text-muted"><div> By <em> <a href="https://twitter.com/username">Jerbi Mohamed Chamseddine</a> </em></div><div class="d-flex"><div> <span> Posted <em class="timeago" data-ts="1739194500" data-toggle="tooltip" data-placement="bottom" data-tooltip-df="llll" > 2025-02-10 </em> </span> <span> Updated <em class="timeago" data-ts="1740349243" data-toggle="tooltip" data-placement="bottom" data-tooltip-df="llll" > 2025-02-23 </em> </span> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="949 words"> <em>5 min</em> read</span></div></div></div><div class="post-content"><p><strong>Server-Sent Events (SSE)</strong> is a lightweight, HTTP-based protocol for real-time, one-way communication from the server to the client. It’s ideal for scenarios where the server needs to push updates to the client (e.g., real-time notifications, live data feeds). Below, I’ll explain <strong>when to use SSE</strong>, <strong>how it works</strong>, and <strong>how to implement it</strong> in your Spring Boot backend and Angular frontend.</p><hr /><h3 id="1-when-to-use-sse"><span class="mr-2"><strong>1. When to Use SSE</strong></span><a href="#1-when-to-use-sse" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><p>SSE is a great choice when:</p><ul><li>You need <strong>real-time updates</strong> from the server to the client.<li>The communication is <strong>one-way</strong> (server → client).<li>You want a <strong>simple, HTTP-based solution</strong> (no need for WebSocket complexity).<li>The client is a <strong>web browser</strong> (SSE is natively supported in modern browsers).</ul><h4 id="use-cases"><span class="mr-2"><strong>Use Cases</strong>:</span><a href="#use-cases" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4></h4><ul><li>Live dashboards (e.g., IoT device status, sensor data).<li>Notifications (e.g., alerts, system events).<li>Stock tickers, news feeds, or sports scores.</ul><hr /><h3 id="2-how-sse-works"><span class="mr-2"><strong>2. How SSE Works</strong></span><a href="#2-how-sse-works" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li>The client initiates a connection to the server using an HTTP request.<li>The server keeps the connection open and sends updates as <strong>text/event-stream</strong>.<li>Each update is a plain text message in a specific format (e.g., <code class="language-plaintext highlighter-rouge">data: {"message": "Hello"}\n\n</code>).<li>The client listens for these messages and processes them in real time.</ul><hr /><h3 id="3-sse-vs-websockets"><span class="mr-2"><strong>3. SSE vs WebSockets</strong></span><a href="#3-sse-vs-websockets" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><p>| <strong>Feature</strong> | <strong>SSE</strong> | <strong>WebSockets</strong> | |————————-|———————————————-|—————————————–| | <strong>Direction</strong> | One-way (server → client) | Two-way (client ↔ server) | | <strong>Protocol</strong> | HTTP | WebSocket (ws:// or wss://) | | <strong>Complexity</strong> | Simple | More complex | | <strong>Browser Support</strong> | Native support in modern browsers | Native support in modern browsers | | <strong>Use Case</strong> | Real-time updates, notifications | Real-time bidirectional communication |</p><hr /><h3 id="4-implementing-sse-in-spring-boot"><span class="mr-2"><strong>4. Implementing SSE in Spring Boot</strong></span><a href="#4-implementing-sse-in-spring-boot" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><p>Here’s how to implement SSE in your Spring Boot backend:</p><h4 id="step-1-add-dependencies"><span class="mr-2"><strong>Step 1: Add Dependencies</strong></span><a href="#step-1-add-dependencies" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4></h4><p>Ensure you have the <code class="language-plaintext highlighter-rouge">spring-boot-starter-web</code> dependency in your <code class="language-plaintext highlighter-rouge">pom.xml</code>:</p><div class="language-xml highlighter-rouge"><div class="code-header"> <span data-label-text="XML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></table></code></div></div><h4 id="step-2-create-an-sse-endpoint"><span class="mr-2"><strong>Step 2: Create an SSE Endpoint</strong></span><a href="#step-2-create-an-sse-endpoint" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4></h4><p>Use <code class="language-plaintext highlighter-rouge">SseEmitter</code> to send events to the client.</p><h5 id="controller"><span class="mr-2"><strong>Controller</strong>:</span><a href="#controller" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5></h5><div class="language-java highlighter-rouge"><div class="code-header"> <span data-label-text="Java"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">org.springframework.http.MediaType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RestController</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.servlet.mvc.method.annotation.SseEmitter</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.CopyOnWriteArrayList</span><span class="o">;</span>
+
+<span class="nd">@RestController</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">"/sse"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SseController</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">CopyOnWriteArrayList</span><span class="o">&lt;</span><span class="nc">SseEmitter</span><span class="o">&gt;</span> <span class="n">emitters</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CopyOnWriteArrayList</span><span class="o">&lt;&gt;();</span>
+
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">path</span> <span class="o">=</span> <span class="s">"/updates"</span><span class="o">,</span> <span class="n">produces</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">TEXT_EVENT_STREAM_VALUE</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">SseEmitter</span> <span class="nf">subscribe</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">SseEmitter</span> <span class="n">emitter</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SseEmitter</span><span class="o">(</span><span class="nc">Long</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">);</span> <span class="c1">// No timeout</span>
+        <span class="n">emitters</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">emitter</span><span class="o">);</span>
+
+        <span class="c1">// Remove the emitter when the client disconnects</span>
+        <span class="n">emitter</span><span class="o">.</span><span class="na">onCompletion</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">emitters</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">emitter</span><span class="o">));</span>
+        <span class="n">emitter</span><span class="o">.</span><span class="na">onTimeout</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">emitters</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">emitter</span><span class="o">));</span>
+
+        <span class="k">return</span> <span class="n">emitter</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sendEvent</span><span class="o">(</span><span class="nc">String</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">SseEmitter</span> <span class="n">emitter</span> <span class="o">:</span> <span class="n">emitters</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">emitter</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="nc">SseEmitter</span><span class="o">.</span><span class="na">event</span><span class="o">().</span><span class="na">data</span><span class="o">(</span><span class="n">data</span><span class="o">));</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">emitters</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">emitter</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h5 id="service"><span class="mr-2"><strong>Service</strong>:</span><a href="#service" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5></h5><p>Trigger events from your service layer:</p><div class="language-java highlighter-rouge"><div class="code-header"> <span data-label-text="Java"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="o">;</span>
+
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SseService</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">SseController</span> <span class="n">sseController</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sendUpdate</span><span class="o">(</span><span class="nc">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">sseController</span><span class="o">.</span><span class="na">sendEvent</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h5 id="usage"><span class="mr-2"><strong>Usage</strong>:</span><a href="#usage" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5></h5><p>Call <code class="language-plaintext highlighter-rouge">sendUpdate</code> to push updates to all connected clients:</p><div class="language-java highlighter-rouge"><div class="code-header"> <span data-label-text="Java"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="nd">@Autowired</span>
+<span class="kd">private</span> <span class="nc">SseService</span> <span class="n">sseService</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSoilMoisture</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">soilMoisture</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">sseService</span><span class="o">.</span><span class="na">sendUpdate</span><span class="o">(</span><span class="s">"Low soil moisture detected!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><hr /><h3 id="5-implementing-sse-in-angular"><span class="mr-2"><strong>5. Implementing SSE in Angular</strong></span><a href="#5-implementing-sse-in-angular" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><p>Here’s how to consume SSE in your Angular frontend:</p><h4 id="step-1-create-an-sse-service"><span class="mr-2"><strong>Step 1: Create an SSE Service</strong></span><a href="#step-1-create-an-sse-service" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4></h4><p>Create a service to handle the SSE connection.</p><h5 id="service-1"><span class="mr-2"><strong>Service</strong>:</span><a href="#service-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5></h5><div class="language-typescript highlighter-rouge"><div class="code-header"> <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+</pre><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">Injectable</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/core</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Observable</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">rxjs</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Injectable</span><span class="p">({</span>
+  <span class="na">providedIn</span><span class="p">:</span> <span class="dl">'</span><span class="s1">root</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">SseService</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">eventSource</span><span class="p">:</span> <span class="nx">EventSource</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{}</span>
+
+  <span class="nx">getServerSentEvents</span><span class="p">(</span><span class="nx">url</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Observable</span><span class="p">((</span><span class="nx">observer</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">eventSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EventSource</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+
+      <span class="k">this</span><span class="p">.</span><span class="nx">eventSource</span><span class="p">.</span><span class="nx">onmessage</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">observer</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+      <span class="p">};</span>
+
+      <span class="k">this</span><span class="p">.</span><span class="nx">eventSource</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">observer</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+      <span class="p">};</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">closeConnection</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">eventSource</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">eventSource</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></table></code></div></div><h4 id="step-2-consume-sse-in-a-component"><span class="mr-2"><strong>Step 2: Consume SSE in a Component</strong></span><a href="#step-2-consume-sse-in-a-component" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4></h4><p>Use the service to listen for updates.</p><h5 id="component"><span class="mr-2"><strong>Component</strong>:</span><a href="#component" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5></h5><div class="language-typescript highlighter-rouge"><div class="code-header"> <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+</pre><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span><span class="p">,</span> <span class="nx">OnDestroy</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/core</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">SseService</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./sse.service</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Subscription</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">rxjs</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="dl">'</span><span class="s1">app-root</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">template</span><span class="p">:</span> <span class="s2">`
+    &lt;h1&gt;Real-Time Updates&lt;/h1&gt;
+    &lt;div *ngFor="let message of messages"&gt;{{ message }}&lt;/div&gt;
+  `</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppComponent</span> <span class="k">implements</span> <span class="nx">OnInit</span><span class="p">,</span> <span class="nx">OnDestroy</span> <span class="p">{</span>
+  <span class="nl">messages</span><span class="p">:</span> <span class="kr">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">private</span> <span class="nx">sseSubscription</span><span class="p">:</span> <span class="nx">Subscription</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">private</span> <span class="nx">sseService</span><span class="p">:</span> <span class="nx">SseService</span><span class="p">)</span> <span class="p">{}</span>
+
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">sseSubscription</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">sseService</span>
+      <span class="p">.</span><span class="nx">getServerSentEvents</span><span class="p">(</span><span class="dl">'</span><span class="s1">http://localhost:8080/sse/updates</span><span class="dl">'</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">subscribe</span><span class="p">({</span>
+        <span class="na">next</span><span class="p">:</span> <span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">message</span><span class="p">),</span>
+        <span class="na">error</span><span class="p">:</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">SSE error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">err</span><span class="p">),</span>
+      <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngOnDestroy</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">sseSubscription</span><span class="p">.</span><span class="nx">unsubscribe</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">sseService</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></table></code></div></div><hr /><h3 id="6-testing-the-implementation"><span class="mr-2"><strong>6. Testing the Implementation</strong></span><a href="#6-testing-the-implementation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ol><li>Start your Spring Boot application.<li>Open the Angular app in a browser.<li>Trigger updates from your backend (e.g., simulate low soil moisture).<li>Verify that the updates appear in real time on the Angular frontend.</ol><hr /><h3 id="7-advanced-features"><span class="mr-2"><strong>7. Advanced Features</strong></span><a href="#7-advanced-features" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><h4 id="a-event-types"><span class="mr-2"><strong>a. Event Types</strong></span><a href="#a-event-types" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4></h4><p>You can send different types of events by specifying an event name:</p><div class="language-java highlighter-rouge"><div class="code-header"> <span data-label-text="Java"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="n">emitter</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="nc">SseEmitter</span><span class="o">.</span><span class="na">event</span><span class="o">().</span><span class="na">name</span><span class="o">(</span><span class="s">"soil-moisture"</span><span class="o">).</span><span class="na">data</span><span class="o">(</span><span class="s">"Low moisture detected!"</span><span class="o">));</span>
+</pre></table></code></div></div><p>In Angular, listen for specific event types:</p><div class="language-typescript highlighter-rouge"><div class="code-header"> <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="k">this</span><span class="p">.</span><span class="nx">eventSource</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">soil-moisture</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Soil moisture event:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></table></code></div></div><h4 id="b-reconnection"><span class="mr-2"><strong>b. Reconnection</strong></span><a href="#b-reconnection" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4></h4><p>SSE automatically reconnects if the connection is lost. You can customize the reconnection delay:</p><div class="language-java highlighter-rouge"><div class="code-header"> <span data-label-text="Java"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="n">emitter</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="nc">SseEmitter</span><span class="o">.</span><span class="na">event</span><span class="o">().</span><span class="na">reconnectTime</span><span class="o">(</span><span class="mi">5000</span><span class="o">));</span> <span class="c1">// Reconnect after 5 seconds</span>
+</pre></table></code></div></div><h4 id="c-error-handling"><span class="mr-2"><strong>c. Error Handling</strong></span><a href="#c-error-handling" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4></h4><p>Handle errors gracefully in Angular:</p><div class="language-typescript highlighter-rouge"><div class="code-header"> <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="k">this</span><span class="p">.</span><span class="nx">eventSource</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">SSE error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+  <span class="c1">// Optionally reconnect</span>
+<span class="p">};</span>
+</pre></table></code></div></div><hr /><h3 id="8-when-not-to-use-sse"><span class="mr-2"><strong>8. When Not to Use SSE</strong></span><a href="#8-when-not-to-use-sse" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li><strong>Bidirectional Communication</strong>: Use WebSockets if the client needs to send data to the server.<li><strong>High-Frequency Updates</strong>: SSE can be less efficient than WebSockets for very high-frequency updates.<li><strong>Legacy Browser Support</strong>: SSE is not supported in Internet Explorer.</ul><hr /><p>Let me know if you need further assistance with SSE or any other part of your system! 😊</p></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/dev/'>DEV</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/sse/" class="post-tag no-text-decoration" >sse</a> <a href="/tags/architecture/" class="post-tag no-text-decoration" >architecture</a> <a href="/tags/notification/" class="post-tag no-text-decoration" >notification</a> <a href="/tags/real-time/" class="post-tag no-text-decoration" >real-time</a> <a href="/tags/event/" class="post-tag no-text-decoration" >event</a> <a href="/tags/angular/" class="post-tag no-text-decoration" >angular</a> <a href="/tags/spring-boot/" class="post-tag no-text-decoration" >spring-boot</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/"> CC BY 4.0 </a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=Server-Sent Events (SSE) - JMC-memo&amp;url=https://gitjmc.github.io/posts/SSE/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=Server-Sent Events (SSE) - JMC-memo&amp;u=https://gitjmc.github.io/posts/SSE/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://t.me/share/url?url=https://gitjmc.github.io/posts/SSE/&amp;text=Server-Sent Events (SSE) - JMC-memo" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://gitjmc.github.io/posts/SSE/" data-toggle="tooltip" data-placement="top" title="Linkedin" target="_blank" rel="noopener" aria-label="Linkedin"> <i class="fa-fw fab fa-linkedin"></i> </a> <a href="http://service.weibo.com/share/share.php?title=Server-Sent Events (SSE) - JMC-memo&amp;url=https://gitjmc.github.io/posts/SSE/" data-toggle="tooltip" data-placement="top" title="Weibo" target="_blank" rel="noopener" aria-label="Weibo"> <i class="fa-fw fab fa-weibo"></i> </a> <i id="copy-link" class="fa-fw fas fa-link small" data-toggle="tooltip" data-placement="top" title="Copy link" data-title-succeed="Link copied successfully!"> </i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted"><div class="access"><div id="access-lastmod" class="post"><div class="panel-heading">Recently Updated</div><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/esp32/">ESP 32</a><li><a href="/posts/iot-project/">Iot Project with ESP 32</a><li><a href="/posts/secureFormQualtrics/">How to secure Form in Qualtrics</a><li><a href="/posts/mosquitto-tls/">Mosquitto with Docker Compose and Base Authentication & Let's Encrypt (DuckDNS)</a><li><a href="/posts/docker-install/">Install Docker on Deepin 20.x</a></ul></div><div id="access-tags"><div class="panel-heading">Trending Tags</div><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/docker/">docker</a> <a class="post-tag" href="/tags/security/">security</a> <a class="post-tag" href="/tags/tuto/">tuto</a> <a class="post-tag" href="/tags/angular/">angular</a> <a class="post-tag" href="/tags/dev/">dev</a> <a class="post-tag" href="/tags/access/">access</a> <a class="post-tag" href="/tags/nextcloud/">nextcloud</a> <a class="post-tag" href="/tags/real-time/">real-time</a> <a class="post-tag" href="/tags/wireguard/">wireguard</a> <a class="post-tag" href="/tags/api/">api</a></div></div></div><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"><div class="panel-heading pl-3 pt-2 mb-2">Contents</div><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="tail-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/IoT-control-with-Angular-SpringBoot/"><div class="card-body"> <em class="timeago small" data-ts="1739198100" > 2025-02-10 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Full-stack IoT example</h3><div class="text-muted small"><p> Okay, the user wants a full functional implementation example for their IoT system using Angular, Spring Boot, and Docker, along with how to measure performance and capacity. Let me start by bre...</p></div></div></a></div><div class="card"> <a href="/posts/iot-system-for-monitoring-a-dam-water-pumping-station/"><div class="card-body"> <em class="timeago small" data-ts="1739540100" > 2025-02-14 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>IoT system for monitoring a dam water pumping station (G)</h3><div class="text-muted small"><p> It seems like you’re asking about an IoT system for monitoring a dam water pumping station, which I’ll interpret as a setup to manage and monitor water pumping operations at a dam—covering aspects ...</p></div></div></a></div><div class="card"> <a href="/posts/setting-up-contoling-and-minotoring-an-iot-system/"><div class="card-body"> <em class="timeago small" data-ts="1739574720" > 2025-02-14 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Setting up, contoling and minotoring an IoT system (G)</h3><div class="text-muted small"><p> Setting up an IoT system to control and monitor your garden irrigation, pool pump, indoor/outdoor lights, heater, and other devices with Angular, Spring Boot, and Docker is a great choice, as these...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/how-the-service-can-authenticates-the-device/" class="btn btn-outline-primary" prompt="Older"><p>How the service can authenticates the device</p></a> <a href="/posts/IoT-control-with-Angular-SpringBoot/" class="btn btn-outline-primary" prompt="Newer"><p>Full-stack IoT example</p></a></div></div></div></div><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center text-muted"><div class="footer-left"><p class="mb-0"> © 2025 <a href="https://twitter.com/username">Jerbi Mohamed Chamseddine</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content"><div id="search-hints"><div id="access-tags"><div class="panel-heading">Trending Tags</div><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/docker/">docker</a> <a class="post-tag" href="/tags/security/">security</a> <a class="post-tag" href="/tags/tuto/">tuto</a> <a class="post-tag" href="/tags/angular/">angular</a> <a class="post-tag" href="/tags/dev/">dev</a> <a class="post-tag" href="/tags/access/">access</a> <a class="post-tag" href="/tags/nextcloud/">nextcloud</a> <a class="post-tag" href="/tags/real-time/">real-time</a> <a class="post-tag" href="/tags/wireguard/">wireguard</a> <a class="post-tag" href="/tags/api/">api</a></div></div></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script> <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script> <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.bundle.min.js"></script> <script defer src="/app.js"></script> <script defer src="https://www.googletagmanager.com/gtag/js?id=G-REJ95ZFTQX"></script> <script> document.addEventListener("DOMContentLoaded", function(event) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-REJ95ZFTQX'); }); </script>
